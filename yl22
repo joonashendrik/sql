@@ -15,7 +15,7 @@ select type, avg(price),count(type) as hulk from books group by type;
 
 select title, price, type
 from books
-where type = "used" and price >( avg(price)
+where type = "used" and price >(select avg(price)
 from books
 where type = "new")
 order by price

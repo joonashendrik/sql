@@ -1,0 +1,22 @@
+select stock_saldo, title, price from books
+group by price
+;
+
+select round(max(price),2), round(min(price),2), round(avg(price),2)
+from books
+;
+
+select round(max(price),2) as "kallim raamat"
+from books
+where type = "used"
+;
+
+select type, avg(price),count(type) as hulk from books group by type;
+
+select title, price, type
+from books
+where type = "used" and price >( avg(price)
+from books
+where type = "new")
+order by price
+;
